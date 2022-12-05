@@ -1,38 +1,8 @@
 const complimentBtn = document.getElementById("complimentButton")
 const birdContainer = document.querySelector('#bird-container')
-
-
-const birdsCallback = ({ data: birds }) => displayBirds(birds)
-const errCallback = err => console.log(err.response.data)
-
-const getAllBirds = () => axios.get("http://localhost:4000/api/birds/").then(birdsCallback).catch(errCallback)
-const createBird = body => axios.post("http://localhost:4000/api/birds/", body).then(birdsCallback).catch(errCallback)
-// const deleteBirdID = id => axios.delete(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
-// const updateBirdID = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(birdsCallback).catch(errCallback)
-
-
-// function submitHandler(e) {
-//     e.preventDefault()
-
-//     let species = document.querySelector('#species')
-//     let count = document.querySelector('#count')
-//     let description = document.querySelector('#description')
-//     let imageURL = document.querySelector('#img')
-
-//     let bodyObj = {
-//         species: species.value,
-//         count: count.value, 
-//         description: description.value,
-//         imageURL: imageURL.value
-//     }
-
-//     createBirdID(bodyObj)
-
-//     species.value = ''
-//     count.value = ''
-//     description.value = ''
-//     imageURL.value = ''
-// }
+const form = document.querySelector('form')
+const wishInput = document.querySelector('#wish-input')
+const list = document.querySelector('ul')
 
 
 const getCompliment = () => {
@@ -51,20 +21,58 @@ const getFortune = () => {
     });
 };
 
+
+const saveWish = evt => {
+    evt.preventDefault()
+    clearList()
+    axios.post("http://localhost:4000/api/wish/", {wish: wishInput.value})
+    .then(response => {
+        let {data} = response
+        data.forEach((wish, index) => {
+            let listItem = document.createElement('li')
+            let wishSpan = document.createElement('span')
+
+            listItem.appendChild(wishSpan)
+
+            wishSpan.textContent = wish
+
+            list.appendChild(listItem)
+        })
+    })
+    .catch(err => console.log(err))
+};
+
+const clearList = () => {
+    list.innerHTML = ''
+}
+
+const baseURL = 'http://localhost:4000/api/birds'
+
+const birdsCallback = ({ data: birds }) => displayBirds(birds)
+const errCallback = err => console.log(err)
+
+
+const getAllBirds = () => axios.get(baseURL).then(birdsCallback).catch(errCallback)
+
+const deleteBirdID = id => axios.delete(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
+
+const updateBirdCount = (id, type) => axios.put(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
+
+
 function createBirdID(bird) {
     const birdID = document.createElement('div')
     birdID.classList.add('bird-id')
 
     birdID.innerHTML = `
     <H3 class="species">${bird.species}</H3>
-    <img alt='bird photo' src=${bird.imageURL} class="bird-photo"/>
+    <img id='bird photo' src=${bird.imageURL} class="bird-photo"/>
     <p class="description">${bird.description}</p>
     <div class="btns-container">
         <button onclick="updateBirdCount(${bird.id}, 'minus')">-</button>
-        <p class="bird-count">${bird.count} spotted</p>
+        <p class="bird-count">${bird.count} ${bird.species}s spotted</p>
         <button onclick="updateBirdCount(${bird.id}, 'plus')">+</button>
-    </div>
-    <button onclick="deleteBird(${bird.id})">delete</button>
+        </div>
+    <button onclick="deleteBirdID(${bird.id})">delete</button>
     `
 
     birdContainer.appendChild(birdID)
@@ -78,8 +86,9 @@ function displayBirds(arr) {
 }
 
 
+
 complimentBtn.addEventListener('click', getCompliment)
 fortuneButton.addEventListener('click', getFortune)
-// form.addEventListener('submit', submitHandler)
+form.addEventListener('submit', saveWish)
 
 getAllBirds()

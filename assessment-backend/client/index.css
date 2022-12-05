@@ -1,0 +1,167 @@
+
+body {
+    background-color: lightskyblue;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    color: blanchedalmond;
+    padding-bottom: 20px;
+}
+
+.section-container {
+    border: dotted 5px blanchedalmond;
+    border-radius: 25px;
+    margin-bottom: 25px;
+}
+
+#wishlist {
+    color: blanchedalmond
+}
+
+.wish-container {
+    border: dotted 5px blanchedalmond;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+#wishform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+input[type="text"], textarea {
+    background-color : blanchedalmond;
+    border: solid 2px black;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+    display: flex;
+  }
+
+.luckybird {    
+    font-size: 80pt;
+    box-sizing: content-box;
+    padding: 0px;
+}
+
+button {
+    background-color: blanchedalmond;
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: black;
+    margin: 5px;
+    font-size: medium;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#submit {
+    background-color: black;
+    color: blanchedalmond;
+    width: 200px;
+    height: 25px;
+}
+
+#buttonmenu {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 45px;
+}
+
+#birdcountcontainer{
+    display: flex;
+    justify-content: center;
+}
+
+#lucky { 
+    display: flex;
+    justify-content: center;
+    color: blanchedalmond
+}
+
+.section-info { 
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    color: blanchedalmond;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    color: blanchedalmond;
+    font-weight: bold;
+}
+
+
+#bird-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+.bird-photo {
+    width: 400px; 
+    height: 300px;
+    border-radius: 25px;
+}
+
+.bird-id {
+    background-color: blanchedalmond;
+    width: 500px;
+    margin: 20px;
+    padding-bottom: 20px;
+    border: dotted 5px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.btns-container {
+    width: 75%; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5px;
+    font-weight: bold;
+}
+
+.btns-container > button {
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    color: blanchedalmond;
+}
+
+.bird-id > button {
+    background-color: black;
+    color: blanchedalmond;
+}

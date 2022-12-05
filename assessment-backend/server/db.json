@@ -3,7 +3,7 @@
       "id": 1,
       "species": "Bluebird",
       "count": 0,
-      "description": "If a bluebird nests outside your door you are sure to have good luck",
+      "description": "If a bluebird nests outside your door you are sure to have good luck.",
       "imageURL" : "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/303809061/1200"
     },
     {
@@ -18,14 +18,28 @@
         "species": "Dove",
         "count": 0,
         "description": "Doves are considered the only bird evil can not inhabit.",
-        "imageURL" : "https://www.wildgratitude.com/wp-content/uploads/2015/12/dove-spirit-animal.jpg"
+        "imageURL" : "https://www.atshq.org/wp-content/uploads/2022/08/dove-symbolism-1.jpg"
       },
       {
         "id": 4,
-        "species": "Kingfisher",
+        "species": "Hummingbird",
         "count": 0,
-        "description": "The kingfisher is considered a lucky charm for all.",
-        "imageURL" : "https://upload.wikimedia.org/wikipedia/commons/9/92/%E2%99%82_Common_Kingfisher_%28Alcedo_atthis%29_Photograph_By_Shantanu_Kuveskar%2C_Mangaon%2C_Maharashtra%2C_India.jpg"
+        "description": "In some cultures, the hummingbird is seen as a bringer of good luck. In others, it is seen as a symbol of love and joy.",
+        "imageURL" : "https://animalcorner.org/wp-content/uploads/2022/07/broad-tail-male-1520486.jpeg"
+      },
+      {
+        "id": 5,
+        "species": "Owl",
+        "count": 0,
+        "description": "Owls are considered to be lucky symbols in some cultures. Owls are thought to be able to see into the future, so they are often seen as omens of good fortune.",
+        "imageURL": "https://www.allaboutbirds.org/guide/assets/photo/297342281-720px.jpg"
+      },
+      {
+        "id": 6,
+        "species": "Cardinal",
+        "count": 0,
+        "description": "Cardinals are considered to be lucky symbols in several cultures. In the United States, seeing a cardinal is said to be a sign of good luck, as well as a sign that someone is watching over you from the other side.",
+        "imageURL" : "https://www.bhg.com/thmb/GemQYQfUd7Pa_WgUwaj31Entvd4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Attract-Cardinals-e32e108d16884246a8ca3a79b7bb4ce3.jpg"
       }
 
   ]

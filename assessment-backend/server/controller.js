@@ -1,5 +1,5 @@
 const database = require('./db.json')
-// const newID = 5
+let wishList = []
 
 module.exports = {
 
@@ -23,46 +23,34 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
 
+   saveWish: (req,res) => {
+        let {wish} = req.body
+        wishList.push(wish)
+        res.status(200).send(wishList)
+    },
+
     getAllBirds: (req,res) => {
         res.status(200).send(database)
     },
 
-    // updateBirdID: (req,res) => {
-    //     let { id } = req.params
-    //     let { type } = req.body
+    deleteBirdID: (req,res) => {
+        let { id } = req.params
+        let index = database.findIndex(birdObj => birdObj.id === +id)
+        database.splice(index,1)
+        res.status(200).send(database)
+    },
 
-    //     let index = database.findIndex(birdObj => birdObj.id === +id)
-    //     let birdToUpdate = database[index]
-    //     if(type === 'minus' &&  birdToUpdate.count > 1){
-    //         birdToUpdate.count--
-    //     } else if (type === 'plus') {
-    //         birdToUpdate.count++
-    //     }
-    //     res.status(200).send(database)
-    // },
-
-
-    // deleteBirdID: (req,res) => {
-    //     let { id } = req.params
-    //     let index = database.findIndex(birdObj => birdObj.id === +id)
-    //     database.splice(index,1)
-    //     res.status(200).send(database)
-    // },
-
-    // createBirdID: (req,res) => {
-    //     let { species, count, description, imageURL } = req.body
-    //     let newBird = {
-    //         id: newID,
-    //         species,
-    //         count,
-    //         description,
-    //         imageURL
-    //     }
-    //     database.push(newBird)
-
-    //     res.status(200).send(database)
-
-    //     newID++
-    // }
+    updateBirdCount: (req,res) => {
+        let { id } = req.params
+        let { type } = req.body
+        let index = database.findIndex(birdObj => birdObj.id === +id)
+        let birdToUpdate = database[index]
+        if(type === 'minus' && birdToUpdate.count > 0){
+            birdToUpdate.count--
+        } else if (type === 'plus'){
+            birdToUpdate.count++
+        }
+        res.status(200).send(database)
+    },
 
 }

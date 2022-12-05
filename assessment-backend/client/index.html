@@ -9,19 +9,38 @@
 </head>
 <body>
   <header>
-    <h1>Your one-stop site for happiness and good luck</h1>
-</header>
-<main>
+    <div class ="luckybird">LUCKY 🐦 BIRD</div>
+    <h4>Your one-stop site for affirmation, fortune, and good luck.</h4>
+  </header>
 
-  <button id="complimentButton">Get a compliment</button>
+  <div id="buttonmenu">
+    <button id="complimentButton">Get a Compliment</button>
+    <button id="fortuneButton">Get a Fortune</button>
+  </div>
 
-  <button id="fortuneButton">Get a fortune</button>
+
+  <div class="wish-container">
+    <h1 id="lucky">Make A Wish List</h1>
+      <p class="section-info">Make some wishes that you hope come true today.</p>
+      <form>
+        <input type='text' placeholder="Enter your wish here..." id="wish-input"/>
+          <button id= submit>Submit</button>
+      </form>
+      <h2 id = 'wishlist'>Here's your wish list for today:</h2>
+      <ul>
+      </ul>
+      </section>
+  </div>
 
 
-  <h2>Lucky Bird Counter</h2>
-  <p id="birdinfo">The presence of birds is often cosidered a sign of good luck. To help keep track of the good fortune these feathered friends are bringing to your backyard, here is a collection of birds commonly associated with good fortune. Use the counter to keep track of how many visit you or feel free to delete any birds that are not native to your area.</p>
+  <div class="section-container">
+      <h1 id="lucky">Lucky Bird Counter</h1>
+      <div id="birdcountcontainer">
+      <p class="section-info">The presence of birds is often cosidered a sign of good luck. To help keep track of the good fortune these feathered friends are bringing to your backyard, here is a collection of birds commonly associated with good fortune. Use the counter to keep track of how many visit you or feel free to delete any birds that are not native to your area.</p>
+    </div>
+  <section id="bird-container"></section>
+</div>
 
-<section id="bird-container"></section>
 
 </main>
 
