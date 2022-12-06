@@ -51,6 +51,6 @@ module.exports = {
             birdToUpdate.count++
         }
         res.status(200).send(database)
-    },
+    }
 
 }

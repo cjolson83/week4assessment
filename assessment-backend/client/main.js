@@ -38,6 +38,7 @@ const saveWish = evt => {
 
             list.appendChild(listItem)
         })
+        wishInput.value = ''
     })
     .catch(err => console.log(err))
 };
@@ -56,7 +57,7 @@ const getAllBirds = () => axios.get(baseURL).then(birdsCallback).catch(errCallba
 
 const deleteBirdID = id => axios.delete(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
 
-const updateBirdCount = (id, type) => axios.put(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
+const updateBirdCount = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(birdsCallback).catch(errCallback)
 
 
 function createBirdID(bird) {
@@ -68,9 +69,9 @@ function createBirdID(bird) {
     <img id='bird photo' src=${bird.imageURL} class="bird-photo"/>
     <p class="description">${bird.description}</p>
     <div class="btns-container">
-        <button onclick="updateBirdCount(${bird.id}, 'minus')">-</button>
+        <button onclick="updateBirdCount(${bird.id},'minus')">-</button>
         <p class="bird-count">${bird.count} ${bird.species}s spotted</p>
-        <button onclick="updateBirdCount(${bird.id}, 'plus')">+</button>
+        <button onclick="updateBirdCount(${bird.id},'plus')">+</button>
         </div>
     <button onclick="deleteBirdID(${bird.id})">delete</button>
     `
