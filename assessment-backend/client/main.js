@@ -4,6 +4,13 @@ const form = document.querySelector('form')
 const wishInput = document.querySelector('#wish-input')
 const list = document.querySelector('ul')
 
+const birdsCallback = ({ data: birds }) => displayBirds(birds)
+const errCallback = err => console.log(err)
+const getAllBirds = () => axios.get(baseURL).then(birdsCallback).catch(errCallback)
+const deleteBirdID = id => axios.delete(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
+const updateBirdCount = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(birdsCallback).catch(errCallback)
+
+const baseURL = 'http://localhost:4000/api/birds'
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -20,7 +27,6 @@ const getFortune = () => {
             alert(data);
     });
 };
-
 
 const saveWish = evt => {
     evt.preventDefault()
@@ -47,19 +53,6 @@ const clearList = () => {
     list.innerHTML = ''
 }
 
-const baseURL = 'http://localhost:4000/api/birds'
-
-const birdsCallback = ({ data: birds }) => displayBirds(birds)
-const errCallback = err => console.log(err)
-
-
-const getAllBirds = () => axios.get(baseURL).then(birdsCallback).catch(errCallback)
-
-const deleteBirdID = id => axios.delete(`${baseURL}/${id}`).then(birdsCallback).catch(errCallback)
-
-const updateBirdCount = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(birdsCallback).catch(errCallback)
-
-
 function createBirdID(bird) {
     const birdID = document.createElement('div')
     birdID.classList.add('bird-id')
@@ -85,7 +78,6 @@ function displayBirds(arr) {
         createBirdID(arr[i])
     }
 }
-
 
 
 complimentBtn.addEventListener('click', getCompliment)
